@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  backend:
+    build: .
+    container_name: cybersecurity_backend
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: "1G"
+        reservations:
+          cpus: "0.5"
+          memory: "512M"
